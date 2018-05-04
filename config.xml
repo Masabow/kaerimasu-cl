@@ -7,7 +7,7 @@
     <author email="dev@cordova.apache.org" href="http://cordova.io">
         Apache Cordova Team
     </author>
-    <content src="index.html" />
+    <content src="cdvtests/index.html" />
     <plugin name="cordova-plugin-whitelist" spec="1" />
     <access origin="*" />
     <allow-intent href="http://*/*" />
@@ -31,7 +31,7 @@
         <string>your custom text here</string>
     </edit-config>
     <plugin name="org.flybuy.cordova.background-location-services" spec="https://github.com/pmwisdom/cordova-background-geolocation-services.git" />
-    <plugin name="cordova-plugin-http" spec="^1.2.0" />
+    <plugin name="cordova-plugin-test-framework" spec="http://github.com/apache/cordova-plugin-test-framework.git" />
     <engine name="ios" spec="^4.5.4" />
     <engine name="browser" spec="^5.0.3" />
 </widget>

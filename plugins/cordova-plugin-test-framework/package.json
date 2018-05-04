@@ -1,0 +1,99 @@
+{
+  "_args": [
+    [
+      {
+        "raw": "http://github.com/apache/cordova-plugin-test-framework.git",
+        "scope": null,
+        "escapedName": null,
+        "name": null,
+        "rawSpec": "http://github.com/apache/cordova-plugin-test-framework.git",
+        "spec": "git+ssh://git@github.com/apache/cordova-plugin-test-framework.git",
+        "type": "hosted",
+        "hosted": {
+          "type": "github",
+          "ssh": "git@github.com:apache/cordova-plugin-test-framework.git",
+          "sshUrl": "git+ssh://git@github.com/apache/cordova-plugin-test-framework.git",
+          "httpsUrl": "git+https://github.com/apache/cordova-plugin-test-framework.git",
+          "gitUrl": "git://github.com/apache/cordova-plugin-test-framework.git",
+          "shortcut": "github:apache/cordova-plugin-test-framework",
+          "directUrl": "https://raw.githubusercontent.com/apache/cordova-plugin-test-framework/master/package.json"
+        }
+      },
+      "c:\\Users\\masaya\\kaerimasu-cl"
+    ]
+  ],
+  "_from": "git+ssh://git@github.com/apache/cordova-plugin-test-framework.git",
+  "_id": "cordova-plugin-test-framework@1.1.7-dev",
+  "_inCache": true,
+  "_location": "/cordova-plugin-test-framework",
+  "_phantomChildren": {},
+  "_requested": {
+    "raw": "http://github.com/apache/cordova-plugin-test-framework.git",
+    "scope": null,
+    "escapedName": null,
+    "name": null,
+    "rawSpec": "http://github.com/apache/cordova-plugin-test-framework.git",
+    "spec": "git+ssh://git@github.com/apache/cordova-plugin-test-framework.git",
+    "type": "hosted",
+    "hosted": {
+      "type": "github",
+      "ssh": "git@github.com:apache/cordova-plugin-test-framework.git",
+      "sshUrl": "git+ssh://git@github.com/apache/cordova-plugin-test-framework.git",
+      "httpsUrl": "git+https://github.com/apache/cordova-plugin-test-framework.git",
+      "gitUrl": "git://github.com/apache/cordova-plugin-test-framework.git",
+      "shortcut": "github:apache/cordova-plugin-test-framework",
+      "directUrl": "https://raw.githubusercontent.com/apache/cordova-plugin-test-framework/master/package.json"
+    }
+  },
+  "_requiredBy": [
+    "#USER",
+    "/"
+  ],
+  "_resolved": "git+ssh://git@github.com/apache/cordova-plugin-test-framework.git#fdaf24f37fdebdc04a8a984305fc49615fe60232",
+  "_shasum": "ccba935e767e6d694dd45af5951399dd3f8b5efe",
+  "_shrinkwrap": null,
+  "_spec": "http://github.com/apache/cordova-plugin-test-framework.git",
+  "_where": "c:\\Users\\masaya\\kaerimasu-cl",
+  "author": {
+    "name": "Apache Software Foundation"
+  },
+  "bugs": {
+    "url": "https://issues.apache.org/jira/browse/CB"
+  },
+  "cordova": {
+    "id": "cordova-plugin-test-framework",
+    "platforms": []
+  },
+  "dependencies": {},
+  "description": "Cordova Test Framework Plugin",
+  "devDependencies": {
+    "eslint": "^4.2.0",
+    "eslint-config-semistandard": "^11.0.0",
+    "eslint-config-standard": "^10.2.1",
+    "eslint-plugin-import": "^2.7.0",
+    "eslint-plugin-node": "^5.1.1",
+    "eslint-plugin-promise": "^3.5.0",
+    "eslint-plugin-standard": "^3.0.1"
+  },
+  "gitHead": "fdaf24f37fdebdc04a8a984305fc49615fe60232",
+  "homepage": "https://github.com/apache/cordova-plugin-test-framework#readme",
+  "keywords": [
+    "cordova",
+    "test",
+    "ecosystem:cordova"
+  ],
+  "license": "Apache-2.0",
+  "name": "cordova-plugin-test-framework",
+  "optionalDependencies": {},
+  "readme": "<!--\n#\n# Licensed to the Apache Software Foundation (ASF) under one\n# or more contributor license agreements.  See the NOTICE file\n# distributed with this work for additional information\n# regarding copyright ownership.  The ASF licenses this file\n# to you under the Apache License, Version 2.0 (the\n# \"License\"); you may not use this file except in compliance\n# with the License.  You may obtain a copy of the License at\n#\n# http://www.apache.org/licenses/LICENSE-2.0\n#\n# Unless required by applicable law or agreed to in writing,\n# software distributed under the License is distributed on an\n# \"AS IS\" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY\n#  KIND, either express or implied.  See the License for the\n# specific language governing permissions and limitations\n# under the License.\n#\n-->\n\n[![Build Status](https://travis-ci.org/apache/cordova-plugin-test-framework.svg?branch=master)](https://travis-ci.org/apache/cordova-plugin-test-framework)\n\n# Cordova Plugin Test Framework\n\nThe `cordova-plugin-test-framework` plugin does two things:\n\n1. [Defines the interface for cordova plugins to write tests](#interface)\n2. [Provides a test harness for actually running those tests](#harness)\n\nTests run directly inside existing cordova projects, so you can rapidly switch between testing and development.  You can also be sure that your test suite is testing the exact versions of plugins and platforms that your app is using.\n\n# TLDR; Try it\n\n1. Use your existing cordova app, or create a new one.\n2. Plugins bundle their tests using a nested plugin in a `/tests` directory. To make this interesting, add some of these plugins and their respective tests.  Here are a few examples:\n\n        cordova plugin add http://git-wip-us.apache.org/repos/asf/cordova-plugin-device.git\n        cordova plugin add http://git-wip-us.apache.org/repos/asf/cordova-plugin-device.git#:/tests\n\t\t\n        cordova plugin add http://git-wip-us.apache.org/repos/asf/cordova-plugin-device-motion.git\n        cordova plugin add http://git-wip-us.apache.org/repos/asf/cordova-plugin-device-motion.git#:/tests\n\t\t\n        cordova plugin add http://git-wip-us.apache.org/repos/asf/cordova-plugin-geolocation.git\n        cordova plugin add http://git-wip-us.apache.org/repos/asf/cordova-plugin-geolocation#:/tests\n\n3. Follow the docs for [Setting up the test harness](#harness).\n\n\n<a name=\"interface\" />\n\n## Writing Plugin Tests\n\n### Where do tests live?\n\nAdd a directory named `tests` to the root of your plugin. Within this directory, create a nested `plugin.xml` for the tests plugin. It should have a plugin id with the form `plugin-id-tests` (e.g. the `cordova-plugin-device` plugin has the nested id `cordova-plugin-device-tests`) and should contain a `<js-module>` named `tests`. E.g:\n\n```\n<js-module src=\"tests/tests.js\" name=\"tests\">\n</js-module>\n```\n\nFor example, the `cordova-plugin-device` plugin has this nested [`plugin.xml`](https://github.com/apache/cordova-plugin-device/blob/master/tests/plugin.xml).\n\nCreate a `package.json` inside your project's `tests/` folder. Plugins require a `package.json` now and tests are considered their own plugins. The latest version of the tools ensure to run `npm install` on any plugin added to a project and pull in any dependencies. Therefore, plugin authors can now put npm dependencies around their tests into the `package.json` file.\n\nFor example,the `cordova-plugin-device` plugin contains a [`package.json`](https://github.com/apache/cordova-plugin-device/blob/master/tests/package.json).\n\nThe `cordova-plugin-test-framework` plugin will automatically find all `tests` modules across all plugins for which the nested tests plugin is installed.\n\n### Defining Auto Tests\n\nSimply export a function named `defineAutoTests`, which (gasp!) defines your auto-tests when run.  Use the [`jasmine-2.0`](http://jasmine.github.io/2.0/introduction.html) format.  E.g.:\n\n```\nexports.defineAutoTests = function() {\n\n  describe('awesome tests', function() {\n    it('do something sync', function() {\n      expect(1).toBe(1);\n      ...\n    });\n\n    it('do something async', function(done) {\n      setTimeout(function() {\n        expect(1).toBe(1);\n        ...\n        done();\n      }, 100);\n    });\n  });\n\n  describe('more awesome tests', function() {\n    ...\n  });\n\n};\n```\n\nNote: Your tests will automatically be labeled with your plugin id, so do not prefix your test descriptions.\n\n\n### Defining Manual Tests\n\nSimply export a function named `defineManualTests`, which (gasp!) defines your manual-tests when run.  Manual tests do *not* use jasmine-2.0, and success/failure results are not officially reported in any standard way.  Instead, create buttons to run arbitrary javascript when clicked, and display output to user using `console` or by manipulating a provided DOM element. E.g.:\n\n```\nexports.defineManualTests = function(contentEl, createActionButton) {\n\n  createActionButton('Simple Test', function() {\n    console.log(JSON.stringify(foo, null, '\\t'));\n  });\n\n  createActionButton('Complex Test', function() {\n    contentEl.innerHTML = ...;\n  });\n\n};\n```\n\nNote: Your tests will automatically be labeled with your plugin id, so do not prefix your test descriptions.\n\n\n<a name=\"example\">\n\n### Example\n\nSee: [`cordova-plugin-device` tests](https://github.com/apache/cordova-plugin-device/blob/master/tests/tests.js).\n\n<a name=\"harness\" />\n\n## Running Plugin Tests\n\n1. Use your existing cordova app, or create a new one.\n2. Add this plugin:\n\n        cordova plugin add http://git-wip-us.apache.org/repos/asf/cordova-plugin-test-framework.git\n\n3. Change the start page in `config.xml` with `<content src=\"cdvtests/index.html\" />` or navigate to `cdvtests/index.html` from within your app.\n4. Thats it!\n\n\n## FAQ\n\n* Q: Should I add `cordova-plugin-test-framework` as a `<dependency>` of my plugin?\n  * A: No.  The end-user should decide if they want to install the test framework, not your plugin (most users won't).\n\n* Q: What do I do if my plugin tests must have very large assets?\n  * A: Don't bundle those assets with your plugin.  If you can, have your tests fail gracefully if those assets don't don't exist (perhaps log a warning, perhaps fail a single asset-checking test, and skip the rest).  Then, ideally download those assets automatically into local storage the first time tests run.  Or create a manual test step to download and install assets.  As a final alternative, split those test assets into a separate plugin, and instruct users to install that plugin to run your full test suite.\n\n* Q: Should I ship my app with the test framework plugin installed?\n  * A: Not likely.  If you want, you can.  Then your app could even embed a link to the test page (`cdvtests/index.html`) from a help section of your app, to give end users a way to run your test suite out in the feild.  That may help diagnose causes of issues within your app.  Maybe.\n",
+  "readmeFilename": "README.md",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/apache/cordova-plugin-test-framework.git"
+  },
+  "scripts": {
+    "eslint": "eslint www",
+    "test": "npm run eslint"
+  },
+  "version": "1.1.7-dev"
+}

@@ -13,13 +13,9 @@
     "org.flybuy.cordova.background-location-services": {
       "PACKAGE_NAME": "io.cordova.hellocordova"
     },
-    "cordova-plugin-http": {
+    "cordova-plugin-test-framework": {
       "PACKAGE_NAME": "io.cordova.hellocordova"
     }
   },
-  "dependent_plugins": {
-    "cordova-plugin-file": {
-      "PACKAGE_NAME": "io.cordova.hellocordova"
-    }
-  }
+  "dependent_plugins": {}
 }
